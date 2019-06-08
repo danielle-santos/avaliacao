@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Avaliação</title>
+</h:head>
+<h:body>
+
+	<p:growl id="msgs" showDetail="false" life="7000" sticky="false"
+		autoUpdate="true" />
+
+	<h:form id="form">
+		<p:panel header="Cadastro de Software" id="pnlCadastro"
+			style="width:98%; border:0">
+
+			<h:panelGrid columns="2">
+
+				<h:outputLabel value="Titulo: " />
+				<p:inputText required="true" label="Titulo" value="#" />
+
+				<h:outputLabel value="Empresa: " />
+				<p:inputText required="true" label="Empresa" value="#" />
+
+				<h:outputLabel value="Tipo: " />
+				<h:selectBooleanCheckbox required="true" label="Tipo" value="#" />
+
+				<h:outputLabel value="Chave: " />
+				<p:inputText required="true" label="Cheve" value="#" />
+
+				<h:outputLabel value="Licenças: " />
+				<p:inputText required="true" label="Licenças" value="#" />
+
+			</h:panelGrid>
+
+			<br />
+
+			<h:panelGrid columns="4">
+				<p:commandButton id="btnNovo" value="Novo" icon="ui-icon-plus"
+					oncomplete="" />
+
+				<p:commandButton id="btnCadastrar" value="Cadastrar"
+					icon="ui-icon-plus" oncomplete="" />
+
+				<p:commandButton id="btnAtualizar" value="Atualizar"
+					icon="ui-icon-plus" oncomplete="" />
+
+				<p:commandButton id="btnExcluir" value="Excluir"
+					icon="ui-icon-close" title="Excluir" oncomplete="" />
+			</h:panelGrid>
+		</p:panel>
+
+	</h:form>
+	
+	
+	<p:growl id="msgs" showDetail="false" life="7000" sticky="false"/>
+	
+	<h:form id="form">
+		
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Titulo: "/>
+			<p:inputText 
+				required="true" 
+				label="Titulo" 
+				value="#{softwareMB.edit.titulo}" var="sof"/>
+			
+			<h:outputLabel value="Empresa: "/>
+			<p:spinner
+				stepFactor="0.5"
+				required="true" 
+				label="Empresa"
+				value="#{softwareMB.edit.empresa}" var="sof"/>
+			
+			<h:outputLabel value="Tipo: "/>
+			<p:selectBooleanCheckbox
+				stepFactor="0.5"
+				required="true" 
+				label="Tipo"
+				value="#{softwareMB.edit.tipo}" var="sof"/>
+				
+			<h:outputLabel value="Chave: "/>
+			<p:spinner
+				stepFactor="0.5"
+				required="true" 
+				label="Chave"
+				value="#{softwareMB.edit.chave}" var="sof"/>
+				
+			<h:outputLabel value="Licença: "/>
+			<p:spinner
+				stepFactor="0.5"
+				required="true" 
+				label="Licça"
+				value="#{softwareMB.edit.licença}" var="sof"/>	
+				
+			<p:commandButton 
+				value="Novo"
+				update=":msgs form" 
+				actionListener="#"/>	
+			
+			<p:commandButton 
+				value="Cadastrar"
+				update=":msgs form" 
+				actionListener="#{softwareMB.onSave}"/>
+				
+			<p:commandButton 
+				value="Atualizar"
+				update=":msgs form" 
+				actionListener="#"/>
+				
+			<p:commandButton 
+				value="Excluir"
+				update=":msgs form" 
+				actionListener="#"/>		
+			
+		</h:panelGrid>
+	</h:form>
+
+</h:body>
+</html>
